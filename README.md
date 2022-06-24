@@ -6,7 +6,7 @@ Backend developed using TypeScript, Express, apollo-server, Prisma and MongoDB.
 
 ## Getting Started
 
-Add .env file to root of project. It should contains the following variables:
+Add .env file to root of project. It should contain the following variables:
 
 ```
 PORT=
