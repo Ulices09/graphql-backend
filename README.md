@@ -19,19 +19,19 @@ DATABASE_URL="mongodb+srv://<user>:<password>@<host>:<port>/<database>"
 ### Installation
 
 ```bash
-$ yarn install
+yarn install
 ```
 
 
 ### Runing the application
 
 ```bash
-$ yarn start
+yarn start
 ```
 
 
 ### Runing unit tests
 
 ```bash
-$ yarn test
+yarn test
 ```
