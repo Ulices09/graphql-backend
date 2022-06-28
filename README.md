@@ -9,7 +9,7 @@ Backend developed using TypeScript, Express, apollo-server, Prisma and MongoDB.
 Add .env file to root of project. It should contain the following variables:
 
 ```
-PORT=
+PORT=4000
 DATABASE_URL="mongodb+srv://<user>:<password>@<host>:<port>/<database>"
 ```
 
@@ -34,4 +34,19 @@ yarn start
 
 ```bash
 yarn test
+```
+
+
+## Running with Docker
+
+### Build the image
+
+```bash
+docker build -t <image_name> .
+```
+
+### Run the image
+
+```bash
+docker run -p 4000:4000 -t <image_name>
 ```

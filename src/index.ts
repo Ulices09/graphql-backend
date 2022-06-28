@@ -28,7 +28,7 @@ async function startServer(typeDefs: DocumentNode, resolvers: any) {
   });
 
   await new Promise<void>((resolve) =>
-    httpServer.listen({ port: process.env.PORT }, resolve)
+    httpServer.listen({ port: process.env.PORT || 4000 }, resolve)
   );
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 }
