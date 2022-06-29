@@ -50,3 +50,25 @@ docker build -t <image_name> .
 ```bash
 docker run -p 4000:4000 -t <image_name>
 ```
+
+## Running with Docker Compose
+
+There is one issue trying to establishing the db connection from the backend
+
+### Run db image first
+
+```bash
+docker-compose up -d db
+```
+
+### Create your mongodb collection (<database>)
+
+### Restart
+
+```bash
+docker-compose stop
+```
+
+```bash
+docker-compose up
+```

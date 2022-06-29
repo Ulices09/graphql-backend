@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  db:
+    image: 'bitnami/mongodb:latest'
+    container_name: db
+    ports:
+      - 27017:27017
+    networks:
+      - backend-cc
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=127.0.0.1
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_ROOT_USER=root
+      - MONGODB_ROOT_PASSWORD=root
+      - MONGODB_REPLICA_SET_KEY=replicasetkey
+    volumes:
+      - mongodb-data:/data/db
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    depends_on:
+      - db
+    ports:
+      - 4000:4000
+    networks:
+      - backend-cc
+    environment:
+      - PORT=4000
+      - DATABASE_URL=mongodb://root:root@db:27017/backendcc?authSource=admin
+    restart: always
+
+volumes:
+  mongodb-data:
+
+networks:
+  backend-cc:
+    driver: bridge
